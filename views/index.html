@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+{% block title %}Home{% endblock %}
+{% block body %}
+  HOME
+  <ul class="main-gallery"></ul>
+{% endblock %}
+{% block scripts %}
+  <script>
+    var MAKE_ENDPOINT = "{{ makeEndpoint }}",
+        LIMIT = 30;
+
+    var make = Make({ makeAPI: MAKE_ENDPOINT });
+
+    function doSearch( tags ) {
+      make
+      .find({
+        tags: tags
+      })
+      .limit( LIMIT )
+      .then( function( data )  {
+        var hits = data.hits;
+        for ( var i = 0; i < hits.length; i++ ) {
+          console.log( hits[ i ] );
+        }
+      });
+    }
+
+    doSearch( "featured" );
+  </script>
+{% endblock %}
