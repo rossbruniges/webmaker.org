@@ -9,9 +9,9 @@
 </head>
 <body>
   <header id="main-header">
-    Webmaker.org - {{ page }}
+    <img id="logo" src="img/logo.png">
     <ul class="nav-list">
-      <li><a id="nav-index" href="/">Make</a></li>
+      <li><a id="nav-index" href="/">Make what?</a></li>
       <li><a id="nav-learn" href="/learn">Learn</a></li>
       <li><a id="nav-teach" href="/teach">Teach</a></li>
       <li><a id="nav-party" href="/party">Party</a></li>
@@ -24,8 +24,14 @@
 
   <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
   <script src="{{ makeEndpoint }}/js/make-api.js"></script>
+  <script src="js/main.js"></script>
   <script>
-    document.getElementById( "nav-{{ page }}" ).classList.add( "on" );
+    document.getElementById( "nav-{{ page }}").classList.add( "on" );
+    var wm = new Webmaker();
+    wm.init({
+      page: "{{ page }}",
+      makeURL: "{{ makeEndpoint }}"
+    });
   </script>
   {% block scripts %}{% endblock %}
 

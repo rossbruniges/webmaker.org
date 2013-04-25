@@ -2,29 +2,27 @@
 {% block title %}Home{% endblock %}
 {% block body %}
   HOME
-  <ul class="main-gallery"></ul>
+  <ul class="main-gallery">
+
+    <div class="make" style="display: none;">
+      <div class="make-type"></div>
+      <div class="title"></div>
+      <img class="thumbnail">
+    </div>
+
+  </ul>
 {% endblock %}
 {% block scripts %}
   <script>
-    var MAKE_ENDPOINT = "{{ makeEndpoint }}",
-        LIMIT = 30;
+    var $mainGallery = $( ".main-gallery" ),
+        $makeTemplate = $( ".make", $mainGallery );
 
-    var make = Make({ makeAPI: MAKE_ENDPOINT });
-
-    function doSearch( tags ) {
-      make
-      .find({
-        tags: tags
-      })
-      .limit( LIMIT )
-      .then( function( data )  {
-        var hits = data.hits;
-        for ( var i = 0; i < hits.length; i++ ) {
-          console.log( hits[ i ] );
-        }
-      });
-    }
-
-    doSearch( "featured" );
+    wm.doSearch( "featured", 30, function( data ) {
+      var $el = $makeTemplate.clone( true ).css( "display", "" );
+      $el.addClass( "make-" + data.tags.makeType );
+      $( ".title", $el ).text( data.title );
+      $( ".make-type", $el ).text( data.tags.makeType );
+      $mainGallery.append( $el );
+    });
   </script>
 {% endblock %}
