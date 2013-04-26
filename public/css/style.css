@@ -11,12 +11,13 @@ body {
 * HEADER
 */
 #main-header {
-  height: 77px;
+  height: 83px;
   margin-bottom: 1em;
   border-bottom: 1px solid #DDD;
 }
 
 #logo {
+  margin-top: 5px;
   float: left;
 }
 
@@ -32,10 +33,10 @@ body {
 .nav-list > li  > a {
   display: block;
   color: #999;
-  line-height: 77px;
-  height: 77px;
+  line-height: 83px;
+  height: 83px;
   text-decoration: none;
-  padding: 0 1em; 
+  padding: 0 1em;
 }
 .nav-list > li  > a.on {
   background: #5A5A5A;
@@ -45,6 +46,20 @@ body {
   color: #B1E8DB;
 }
 
+.clearfix:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}
+
+.clearfix {
+  display: inline-block;
+}
+
+
 /*********************************************************
 * MAIN
 */
@@ -53,6 +68,9 @@ body {
 #footer {
   display: block;
   padding: 1em;
+}
+
+#footer {
 }
 
 /*********************************************************
