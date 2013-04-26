@@ -39,10 +39,25 @@ Webmaker = function() {
     });
   }
 
+  function SSO() {
+    var personaSSO = navigator.personaSSO;
+    console.log( navigator.personaSSO.init );
+    personaSSO.init( document.getElementById("SSO") );
+    personaSSO.id.watch({
+      onlogin: function(topic, data){
+        personaSSO.ui.checkMaker(data, $( "#webmaker-nav" ));
+      },
+      onlogout: function(){
+        personaSSO.ui.loggedOut();
+      }
+    });
+  }
+
   function init( options ) {
     makeURL = options.makeURL;
     page = options.page;
     make = Make({ makeAPI: makeURL });
+    SSO();
   }
 
   return {
