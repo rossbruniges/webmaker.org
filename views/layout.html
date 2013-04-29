@@ -25,8 +25,8 @@
       </ul>
     </nav>
   </div>
-  <header id="main-header">
-    <img id="logo" src="img/logo.png">
+  <header id="main-header" class="main-header">
+    <img class="logo" src="img/logo.png">
     <ul class="nav-list">
       <li><a id="nav-index" href="/">Make what?</a></li>
       <li><a id="nav-learn" href="/learn">Learn</a></li>
@@ -35,11 +35,10 @@
       <li><a class="icon-search" id="nav-search" href="/search"></a></li>
     </ul>
   </header>
-  <div id="create-container"></div>
 
-  <div id="content" class="clearfix">{% block body %}{% endblock %}</div>
+  <div id="content" class="content clearfix">{% block body %}{% endblock %}</div>
 
-  <footer id="footer"></footer>
+  <footer class="footer"></footer>
 
   <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
   <script src="{{ personaSSO }}/js/sso.js"></script>

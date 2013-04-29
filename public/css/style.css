@@ -10,13 +10,16 @@ body {
 /*********************************************************
 * HEADER
 */
-#main-header {
+.main-header {
   height: 83px;
   margin-bottom: 1em;
   border-bottom: 1px solid #DDD;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
-#logo {
+.logo {
   margin-top: 5px;
   float: left;
 }
@@ -38,7 +41,7 @@ body {
   text-decoration: none;
   padding: 0 1em;
 }
-.nav-list > li  > a.on {
+.nav-list > li  > .on {
   background: #5A5A5A;
   color: #FFF;
 }
@@ -64,13 +67,10 @@ body {
 * MAIN
 */
 
-#content,
-#footer {
+.content,
+.footer {
   display: block;
   padding: 1em;
-}
-
-#footer {
 }
 
 /*********************************************************
@@ -85,6 +85,9 @@ body {
   border: 1px solid;
   float: left;
   margin: 5px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .make-popcorn {
