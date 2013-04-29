@@ -79,12 +79,10 @@ body {
 
 .make {
   position: relative;
-  padding: 1em;
   width: 200px;
   height: 150px;
+  padding: 1em;
   border: 1px solid;
-  float: left;
-  margin: 5px;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -92,6 +90,10 @@ body {
 
 .make-popcorn {
   color: #3FB58E;
+}
+
+.make-big {
+  width: 400px;
 }
 
 .make-thimble {
