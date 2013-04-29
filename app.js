@@ -2,14 +2,14 @@ var express = require( "express" ),
     habitat = require( "habitat" ),
     nunjucks = require( "nunjucks" ),
     path = require( "path" ),
-    roots = require( "./routes" );
+    route = require( "./routes" );
 
 habitat.load();
 
 var app = express(),
     env = new habitat(),
     nunjucksEnv = new nunjucks.Environment( new nunjucks.FileSystemLoader( path.join( __dirname + '/views' ))),
-    routes = roots( env.get( "MAKE_ENDPOINT" ), env.get( "SSO" ) );
+    routes = route( env.get( "MAKE_ENDPOINT" ), env.get( "PERSONA_SSO" ) );
 
 nunjucksEnv.express( app );
 app.disable( "x-powered-by" );
